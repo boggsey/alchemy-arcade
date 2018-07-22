@@ -5,8 +5,11 @@ const RegisterForm = () => (
   <div>
     <Formik
       initialValues={{
+        firstName: '',
+        lastName: '',
         email: '',
         password: '',
+        confirmPassword: '',
       }}
       validate={(values) => {
         let errors = {};
