@@ -1,5 +1,12 @@
-import React from 'react';
+import React from 'react'
+import Main from './Main';
 
-const App = () => <div>Replace me with something you can be proud of.</div>;
+const App = () => {
+  return (
+    <div>
+      <Main />
+    </div>
+  )
+}
 
 export default App;
