@@ -1,8 +1,9 @@
 import React from 'react';
+import LoginForm from '../forms/LoginForm';
 
 const LoginPage = () => (
   <div>
-    This is the login page!
+    <LoginForm />
   </div>
 );
 

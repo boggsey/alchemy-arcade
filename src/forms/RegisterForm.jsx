@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik } from 'formik';
 
-const LoginForm = () => (
+const RegisterForm = () => (
   <div>
     <Formik
       initialValues={{
@@ -35,7 +35,37 @@ const LoginForm = () => (
         handleSubmit,
         isSubmitting,
       }) => (
-        <form className="login-form" onSubmit={handleSubmit}>
+
+        <form className="registration-form" onSubmit={handleSubmit}>
+          <div className="form__field-wrapper">
+            <label className="form__field-label" htmlFor="first_name">First Name</label>
+            <input
+              className="form__field-input"
+              type="text"
+              name="first_name"
+              id="first_name"
+              value={values.firstName}
+              placeholder="First Name"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+          </div>
+          {touched.firstName && errors.firstName && <div>{errors.firstName}</div>}
+
+          <div className="form__field-wrapper">
+            <label className="form__field-label" htmlFor="last_name">Last Name</label>
+            <input
+              className="form__field-input"
+              type="text"
+              id="last_name"
+              value={values.lastName}
+              placeholder="Last Name"
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+          </div>
+          {touched.lastName && errors.lastName && <div>{errors.lastName}</div>}
+
           <div className="form__field-wrapper">
             <label className="form__field-label" htmlFor="email">Email</label>
             <input
@@ -68,6 +98,17 @@ const LoginForm = () => (
           </div>
           {touched.password && errors.password && <div>{errors.password}</div>}
 
+          <div className="form__field-wrapper">
+            <label className="form__field-label" htmlFor="confirm_password">Confirm Password</label>
+            <input
+              className="form__field-input"
+              id="confirm_password"
+              type="password"
+              value=""
+              placeholder="Password"
+            />
+          </div>
+
           <div className="form__submit-btn-wrapper">
             <button className="form__submit-btn" type="submit" disabled={isSubmitting}>Submit</button>
           </div>
@@ -77,4 +118,5 @@ const LoginForm = () => (
   </div >
 );
 
-export default LoginForm;
+export default RegisterForm;
+
