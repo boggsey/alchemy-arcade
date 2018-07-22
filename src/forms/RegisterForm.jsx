@@ -1,5 +1,24 @@
 import React from 'react';
 import { Formik } from 'formik';
+import * as Yup from 'yup';
+
+const RegisterSchema = Yup.object().shape({
+  email: Yup.string()
+    .email('Invalid email address')
+    .required('Required'),
+  firstName: Yup.string()
+    .min(2, 'Must be longer than 2 characters')
+    .max(20, 'Nice try, nobody has a first name that long')
+    .required('Required'),
+  lastName: Yup.string()
+    .min(2, 'Must be longer than 2 characters')
+    .max(20, 'Nice try, nobody has a last name that long')
+    .required('Required'),
+  password: Yup.string().required('Password is required'),
+  passwordConfirm: Yup.string()
+    .oneOf([Yup.ref('password'), null])
+    .required('Password confirm is required'),
+});
 
 const RegisterForm = () => (
   <div>
@@ -11,17 +30,7 @@ const RegisterForm = () => (
         password: '',
         confirmPassword: '',
       }}
-      validate={(values) => {
-        let errors = {};
-        if (!values.email) {
-          errors.email = 'Required';
-        } else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-        ) {
-          errors.email = 'Invalid email address';
-        }
-        return errors;
-      }}
+      validationSchema={RegisterSchema}
       onSubmit={(
         values,
         { setSubmitting, setErrors },
@@ -38,15 +47,14 @@ const RegisterForm = () => (
         handleSubmit,
         isSubmitting,
       }) => (
-
         <form className="registration-form" onSubmit={handleSubmit}>
           <div className="form__field-wrapper">
-            <label className="form__field-label" htmlFor="first_name">First Name</label>
+            <label className="form__field-label" htmlFor="firstName">First Name</label>
             <input
               className="form__field-input"
               type="text"
-              name="first_name"
-              id="first_name"
+              name="firstName"
+              id="firstName"
               value={values.firstName}
               placeholder="First Name"
               onChange={handleChange}
@@ -56,11 +64,11 @@ const RegisterForm = () => (
           {touched.firstName && errors.firstName && <div>{errors.firstName}</div>}
 
           <div className="form__field-wrapper">
-            <label className="form__field-label" htmlFor="last_name">Last Name</label>
+            <label className="form__field-label" htmlFor="lastName">Last Name</label>
             <input
               className="form__field-input"
               type="text"
-              id="last_name"
+              id="lastName"
               value={values.lastName}
               placeholder="Last Name"
               onChange={handleChange}
@@ -102,13 +110,15 @@ const RegisterForm = () => (
           {touched.password && errors.password && <div>{errors.password}</div>}
 
           <div className="form__field-wrapper">
-            <label className="form__field-label" htmlFor="confirm_password">Confirm Password</label>
+            <label className="form__field-label" htmlFor="confirmPassword">Confirm Password</label>
             <input
               className="form__field-input"
-              id="confirm_password"
+              id="confirmPassword"
               type="password"
-              value=""
+              value={values.confirmPassword}
               placeholder="Password"
+              onChange={handleChange}
+              onBlur={handleBlur}
             />
           </div>
 
