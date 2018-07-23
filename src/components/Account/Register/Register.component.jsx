@@ -30,7 +30,7 @@ const RegisterForm = () => (
         handleSubmit,
         isSubmitting,
       }) => (
-        <form className="registration-form" onSubmit={handleSubmit}>
+        <form className="registration-form" onSubmit={handleSubmit} noValidate>
           <div className="form__field-wrapper">
             <label className="form__field-label" htmlFor="firstName">First Name</label>
             <input
