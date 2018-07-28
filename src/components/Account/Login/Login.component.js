@@ -1,8 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import LoginSchema from './Login.schema';
+import login from './Login.actions';
 
-const Login = () => (
+const LoginForm = props => (
   <div>
     <Formik
       initialValues={{
@@ -10,12 +13,12 @@ const Login = () => (
         password: '',
       }}
       validationSchema={LoginSchema}
-      onSubmit={(
-        values,
-        { setSubmitting, setErrors },
-      ) => {
-        // Login action
-        console.log(values);
+      onSubmit={async (values) => {
+        try {
+          const loginReturn = await props.login(values);
+        } catch (error) {
+          console.log(error);
+        }
       }}
       render={({
         values,
@@ -68,4 +71,12 @@ const Login = () => (
   </div>
 );
 
-export default Login;
+LoginForm.propTypes = {
+  login: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = {
+  login,
+};
+
+export default connect(null, mapDispatchToProps)(LoginForm);

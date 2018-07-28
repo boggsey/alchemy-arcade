@@ -1,9 +1,8 @@
 import React from 'react';
+import Roster from '../components/Roster/Roster.component';
 
 const RosterPage = () => (
-  <div>
-    This is the roster page!
-  </div>
+  <Roster />
 );
 
 export default RosterPage;
