@@ -3,21 +3,25 @@ import {
   applyMiddleware,
   compose,
 } from 'redux';
+import { createBrowserHistory } from 'history';
+import { connectRouter, routerMiddleware } from 'connected-react-router';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
-import DevTools from '../containers/DevTools';
 import RootReducer from './Root.reducer';
 
-const configureStore = (preloadedState) => {
+export const history = createBrowserHistory();
 
+const configureStore = (preloadedState) => {
+  /* eslint-disable no-underscore-dangle */
   const store = createStore(
-    RootReducer,
+    connectRouter(history)(RootReducer),
     preloadedState,
     compose(
-      applyMiddleware(thunk, createLogger()),
-      DevTools.instrument(),
+      applyMiddleware(thunk, createLogger(), routerMiddleware(history)),
+      window.devToolsExtension ? window.devToolsExtension() : f => f,
     ),
   );
+  /* eslint-enable */
 
   return store;
 };

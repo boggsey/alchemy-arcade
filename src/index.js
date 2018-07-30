@@ -1,20 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { ConnectedRouter } from 'connected-react-router';
 import { Provider } from 'react-redux';
 import 'whatwg-fetch';
 import './index.css';
 import App from './components/App';
-import configureStore from './store/ConfigureStore';
+import configureStore, { history } from './store/ConfigureStore';
 
 const store = configureStore();
-console.log(store);
-
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
+    <ConnectedRouter history={history}>
       <App />
-    </Router>
+    </ConnectedRouter>
   </Provider>,
   document.getElementById('root'),
 );

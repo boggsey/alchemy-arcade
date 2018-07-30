@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 import Nav from './Nav';
 import Main from './Main';
@@ -27,4 +28,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {})(App);
+export default withRouter(connect(mapStateToProps, {})(App));

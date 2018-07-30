@@ -4,7 +4,11 @@ import {
   REGISTER_FAILURE,
 } from './Register.constants';
 
-function RegisterReducer(state = {}, action) {
+const initialState = {
+  user: {},
+};
+
+function RegisterReducer(state = initialState, action) {
   switch (action.type) {
     case REGISTER_REQUEST:
       return {
@@ -13,6 +17,7 @@ function RegisterReducer(state = {}, action) {
     case REGISTER_SUCCESS:
       return {
         ...state,
+        user: action.payload,
       };
     case REGISTER_FAILURE:
       return {

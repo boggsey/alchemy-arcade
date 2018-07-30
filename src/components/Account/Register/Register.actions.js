@@ -5,24 +5,22 @@ import {
 } from './Register.constants';
 import receiveAuth from '../Auth/Auth.actions';
 
-function requestRegister(creds) {
+function requestRegister() {
   return {
     type: REGISTER_REQUEST,
-    creds,
   };
 }
 
 function receiveRegister(user) {
   return {
     type: REGISTER_SUCCESS,
-    id_token: user.id_token,
+    payload: user,
   };
 }
 
-function errorRegister(message) {
+function errorRegister() {
   return {
     type: REGISTER_FAILURE,
-    message,
   };
 }
 
@@ -39,7 +37,7 @@ async function registerRequest(user) {
 
 const register = (user) => {
   return async (dispatch) => {
-    dispatch(requestRegister(user));
+    dispatch(requestRegister());
     try {
       const data = await registerRequest(user);
       window.localStorage.setItem('token', data.token);
@@ -47,7 +45,7 @@ const register = (user) => {
       dispatch(receiveAuth());
       return data;
     } catch (error) {
-      dispatch(errorRegister(error));
+      dispatch(errorRegister());
     }
   };
 };

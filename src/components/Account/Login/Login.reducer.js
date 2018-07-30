@@ -9,8 +9,6 @@ const initialState = {
   isAuthenticated: localStorage.getItem('token') ? true : false,
 };
 
-console.log(initialState);
-
 function LoginReducer(state = initialState, action) {
   switch (action.type) {
     case LOGIN_REQUEST:

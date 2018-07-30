@@ -1,8 +1,8 @@
 import React from 'react';
-import Roster from '../components/Roster/Roster.component';
+import RosterList from '../components/Roster/RosterList/RosterList.component';
 
 const RosterPage = () => (
-  <Roster />
+  <RosterList />
 );
 
 export default RosterPage;
