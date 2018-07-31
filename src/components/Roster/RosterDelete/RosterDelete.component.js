@@ -13,7 +13,6 @@ class RosterDelete extends Component {
     const token = window.localStorage.getItem('token');
     try {
       const data = await this.props.deletePlayer(this.props.id, token);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }

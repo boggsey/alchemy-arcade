@@ -95,7 +95,7 @@ const RosterAdd = (props) => {
             </div>
 
             <div className="form__submit-btn-wrapper">
-              <button className="form__submit-btn" id="create" type="submit" disabled={isSubmitting}>Submit</button>
+              <button className="form__submit-btn" id="create" type="submit" disabled={isSubmitting}>Add Player</button>
             </div>
           </form>
           )}

@@ -63,7 +63,7 @@ const LoginForm = props => (
           {touched.password && errors.password && <div>{errors.password}</div>}
 
           <div className="form__submit-btn-wrapper">
-            <button className="form__submit-btn" id="login" type="submit" disabled={isSubmitting}>Submit</button>
+            <button className="form__submit-btn" id="login" type="submit" disabled={isSubmitting}>Login</button>
           </div>
         </form>
         )}

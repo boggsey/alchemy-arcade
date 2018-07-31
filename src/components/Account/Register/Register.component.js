@@ -112,8 +112,7 @@ const RegisterForm = props => (
           {touched.confirm_password && errors.confirm_password && <div>{errors.confirm_password}</div>}
 
           <div className="form__submit-btn-wrapper">
-            <label className="form__field-label" htmlFor="register">Register</label>
-            <button className="form__submit-btn" id="register" type="submit" disabled={isSubmitting}>Submit</button>
+            <button className="form__submit-btn" id="register" type="submit" disabled={isSubmitting}>Register</button>
           </div>
         </form>
         )}
