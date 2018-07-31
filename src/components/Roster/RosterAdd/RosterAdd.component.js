@@ -36,12 +36,12 @@ const RosterAdd = (props) => {
         }) => (
           <form className="registration-form" onSubmit={handleSubmit} noValidate>
             <div className="form__field-wrapper">
-              <label className="form__field-label" htmlFor="first_name">First Name</label>
+              <label className="form__field-label" htmlFor="firstName">First Name</label>
               <input
                 className="form__field-input"
                 type="text"
                 name="first_name"
-                id="first_name"
+                id="firstName"
                 value={values.first_name}
                 placeholder="First Name"
                 onChange={handleChange}
@@ -51,11 +51,12 @@ const RosterAdd = (props) => {
             {touched.first_name && errors.first_name && <div>{errors.first_name}</div>}
 
             <div className="form__field-wrapper">
-              <label className="form__field-label" htmlFor="last_name">Last Name</label>
+              <label className="form__field-label" htmlFor="lastName">Last Name</label>
               <input
                 className="form__field-input"
                 type="text"
-                id="last_name"
+                name="last_name"
+                id="lastName"
                 value={values.last_name}
                 placeholder="Last Name"
                 onChange={handleChange}
@@ -65,10 +66,11 @@ const RosterAdd = (props) => {
             {touched.last_name && errors.last_name && <div>{errors.last_name}</div>}
 
             <div className="form__field-wrapper">
-              <label className="form__field-label" htmlFor="last_name">Rating</label>
+              <label className="form__field-label" htmlFor="rating">Rating</label>
               <input
                 className="form__field-input"
                 type="number"
+                name="rating"
                 id="rating"
                 value={values.rating}
                 placeholder="Rating"
@@ -79,38 +81,21 @@ const RosterAdd = (props) => {
             {touched.rating && errors.rating && <div>{errors.rating}</div>}
 
             <div className="form__field-wrapper">
-              <label className="form__field-label" htmlFor="left">Left</label>
-              <input
-                type="radio"
-                id="left"
-                value={values.handedness}
+              <label className="form__field-label" htmlFor="handedness">Handedness</label>
+              <select
                 name="handedness"
-                checked={values.handedness === 'left'}
-                onBlur={handleBlur}
-                onChange={() => {
-                  setFieldValue('handedness', 'left');
-                }}
-              />
-            </div>
-
-            <div className="form__field-wrapper">
-              <label className="form__field-label" htmlFor="left">Right</label>
-              <input
-                type="radio"
-                id="right"
+                id="handedness"
                 value={values.handedness}
-                name="handedness"
-                checked={values.handedness === 'right'}
+                onChange={handleChange}
                 onBlur={handleBlur}
-                onChange={() => {
-                  setFieldValue('handedness', 'right');
-                }}
-              />
+              >
+                <option value="left">Left</option>
+                <option value="right">Right</option>
+              </select>
             </div>
-            {touched.handedness && errors.handedness && <div>{errors.handedness}</div>}
 
             <div className="form__submit-btn-wrapper">
-              <button className="form__submit-btn" type="submit" disabled={isSubmitting}>Submit</button>
+              <button className="form__submit-btn" id="create" type="submit" disabled={isSubmitting}>Submit</button>
             </div>
           </form>
           )}

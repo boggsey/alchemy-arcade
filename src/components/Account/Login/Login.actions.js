@@ -1,3 +1,4 @@
+import { push } from 'connected-react-router';
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -59,7 +60,7 @@ const login = (user) => {
       window.localStorage.setItem('token', data.token);
       dispatch(receiveLogin(data));
       dispatch(receiveAuth());
-      return data;
+      dispatch(push('/roster'));
     } catch (error) {
       dispatch(errorLogin(error));
     }

@@ -34,12 +34,12 @@ const RegisterForm = props => (
       }) => (
         <form className="registration-form" onSubmit={handleSubmit} noValidate>
           <div className="form__field-wrapper">
-            <label className="form__field-label" htmlFor="first_name">First Name</label>
+            <label className="form__field-label" htmlFor="firstName">First Name</label>
             <input
               className="form__field-input"
               type="text"
               name="first_name"
-              id="first_name"
+              id="firstName"
               value={values.first_name}
               placeholder="First Name"
               onChange={handleChange}
@@ -49,11 +49,12 @@ const RegisterForm = props => (
           {touched.first_name && errors.first_name && <div>{errors.first_name}</div>}
 
           <div className="form__field-wrapper">
-            <label className="form__field-label" htmlFor="last_name">Last Name</label>
+            <label className="form__field-label" htmlFor="lastName">Last Name</label>
             <input
               className="form__field-input"
               type="text"
-              id="last_name"
+              name="last_name"
+              id="lastName"
               value={values.last_name}
               placeholder="Last Name"
               onChange={handleChange}
@@ -84,8 +85,9 @@ const RegisterForm = props => (
             <label className="form__field-label" htmlFor="password">Password</label>
             <input
               className="form__field-input"
-              id="password"
               type="password"
+              name="password"
+              id="password"
               value={values.password}
               placeholder="Password"
               onChange={handleChange}
@@ -95,11 +97,12 @@ const RegisterForm = props => (
           {touched.password && errors.password && <div>{errors.password}</div>}
 
           <div className="form__field-wrapper">
-            <label className="form__field-label" htmlFor="confirm_password">Confirm Password</label>
+            <label className="form__field-label" htmlFor="confirmPassword">Confirm Password</label>
             <input
               className="form__field-input"
-              id="confirm_password"
               type="password"
+              name="confirm_password"
+              id="confirmPassword"
               value={values.confirm_password}
               placeholder="Password"
               onChange={handleChange}
@@ -109,7 +112,8 @@ const RegisterForm = props => (
           {touched.confirm_password && errors.confirm_password && <div>{errors.confirm_password}</div>}
 
           <div className="form__submit-btn-wrapper">
-            <button className="form__submit-btn" type="submit" disabled={isSubmitting}>Submit</button>
+            <label className="form__field-label" htmlFor="register">Register</label>
+            <button className="form__submit-btn" id="register" type="submit" disabled={isSubmitting}>Submit</button>
           </div>
         </form>
         )}

@@ -1,4 +1,4 @@
-import { AUTH_SUCCESS } from './Auth.constants';
+import AUTH_SUCCESS from './Auth.constants';
 
 const initialState = {
   isAuthenticated: false,

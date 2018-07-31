@@ -15,8 +15,10 @@ const Main = () => (
       <Route path="/register" component={RegisterPage} />
       <Route path="/roster" component={RosterPage} />
       <Route path="/player/new" component={PlayerPage} />
+      {/* <Route component={NoMatch} /> */}
     </Switch>
   </main>
 );
 
 export default Main;
+

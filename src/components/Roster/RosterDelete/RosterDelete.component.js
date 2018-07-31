@@ -21,7 +21,7 @@ class RosterDelete extends Component {
 
   render() {
     return (
-      <div onClick={this.handleClick}>
+      <div className="delete" onClick={this.handleClick}>
         Delete
       </div>
     );

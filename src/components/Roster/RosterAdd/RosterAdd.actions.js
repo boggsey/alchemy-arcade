@@ -1,3 +1,4 @@
+import { push } from 'connected-react-router';
 import {
   ROSTER_ADD_REQUEST,
   ROSTER_ADD_SUCCESS,
@@ -40,7 +41,7 @@ const rosterAdd = (player, token) => {
     try {
       const data = await rosterAddRequest(player, token);
       dispatch(receiveRosterAdd());
-      return data;
+      dispatch(push('/roster'));
     } catch (error) {
       dispatch(errorRosterAdd());
     }

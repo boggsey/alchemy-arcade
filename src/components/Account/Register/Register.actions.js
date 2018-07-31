@@ -1,3 +1,4 @@
+import { push } from 'connected-react-router';
 import {
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
@@ -43,7 +44,7 @@ const register = (user) => {
       window.localStorage.setItem('token', data.token);
       dispatch(receiveRegister(data));
       dispatch(receiveAuth());
-      return data;
+      dispatch(push('/roster'));
     } catch (error) {
       dispatch(errorRegister());
     }

@@ -10,7 +10,7 @@ const App = (props) => {
   const { isAuthenticated } = props;
   return (
     <div>
-      <Nav />
+      <Nav isAuthenticated={isAuthenticated} />
       <Main isAuthenticated={isAuthenticated} />
     </div>
   );
