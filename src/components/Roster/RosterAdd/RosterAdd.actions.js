@@ -10,7 +10,7 @@ export function requestRosterAdd() {
   };
 }
 
-export function receiveRosterAdd(user, token) {
+export function receiveRosterAdd() {
   return {
     type: ROSTER_ADD_SUCCESS,
   };

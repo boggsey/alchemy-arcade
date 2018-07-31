@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import getRosterList from './RosterList.actions';
+import RosterDelete from '../RosterDelete/RosterDelete.component';
 
 class RosterList extends Component {
 
@@ -15,7 +16,6 @@ class RosterList extends Component {
     const token = window.localStorage.getItem('token');
     try {
       const data = await this.props.getRosterList(token);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -47,6 +47,14 @@ class RosterList extends Component {
                   Header: 'Handedness',
                   id: 'handedness',
                   accessor: 'handedness',
+                },
+                {
+                  Header: 'Actions',
+                  id: 'actions',
+                  accessor: 'id',
+                  Cell: row => (
+                    <RosterDelete id={row.value} />
+                  ),
                 },
               ],
             },
