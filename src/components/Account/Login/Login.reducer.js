@@ -2,7 +2,6 @@ import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
-  LOGOUT_SUCCESS,
 } from './Login.constants';
 
 function LoginReducer(state = {}, action) {
@@ -16,10 +15,6 @@ function LoginReducer(state = {}, action) {
         ...state,
       };
     case LOGIN_FAILURE:
-      return {
-        ...state,
-      };
-    case LOGOUT_SUCCESS:
       return {
         ...state,
       };

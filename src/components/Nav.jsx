@@ -2,13 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Nav = props => (
+const Nav = ({ isAuthenticated, receiveLogout }) => (
   <div>
     <nav>
       <Link to="/">Home</Link>
       {
-        props.isAuthenticated ? (
-          <Link to="/roster">Roster</Link>
+        isAuthenticated ? (
+          <div>
+            <Link to="/roster">Roster</Link>
+            <Link to="/roster" onClick={receiveLogout}>Logout</Link>
+          </div>
         ) : (
           <div>
             <Link to="/login">Login</Link>
@@ -22,6 +25,7 @@ const Nav = props => (
 
 Nav.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
+  receiveLogout: PropTypes.func.isRequired,
 };
 
 export default Nav;

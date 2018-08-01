@@ -1,4 +1,4 @@
-import AUTH_SUCCESS from './Auth.constants';
+import { AUTH_SUCCESS, LOGOUT_SUCCESS } from './Auth.constants';
 
 const initialState = {
   isAuthenticated: false,
@@ -10,6 +10,11 @@ function AuthReducer(state = initialState, action) {
       return {
         ...state,
         isAuthenticated: true,
+      };
+    case LOGOUT_SUCCESS:
+      return {
+        ...state,
+        isAuthenticated: false,
       };
     default:
       return state;

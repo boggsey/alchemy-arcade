@@ -3,9 +3,8 @@ import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
-  LOGOUT_SUCCESS,
 } from './Login.constants';
-import receiveAuth from '../Auth/Auth.actions';
+import { receiveAuth } from '../Auth/Auth.actions';
 
 export function requestLogin(creds) {
   return {
@@ -32,14 +31,6 @@ export function errorLogin(message) {
     isFetching: false,
     isAuthenticated: false,
     message,
-  };
-}
-
-export function receiveLogout() {
-  return {
-    type: LOGOUT_SUCCESS,
-    isFetching: false,
-    isAuthenticated: false,
   };
 }
 

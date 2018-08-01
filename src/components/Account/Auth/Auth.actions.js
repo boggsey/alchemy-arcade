@@ -1,7 +1,10 @@
-import AUTH_SUCCESS from './Auth.constants';
+import { AUTH_SUCCESS, LOGOUT_SUCCESS } from './Auth.constants';
 
-function receiveAuth() {
+export function receiveAuth() {
   return ({ type: AUTH_SUCCESS });
 }
 
-export default receiveAuth;
+export const receiveLogout = () => async (dispatch) => {
+  window.localStorage.removeItem('token');
+  dispatch({ type: LOGOUT_SUCCESS });
+};

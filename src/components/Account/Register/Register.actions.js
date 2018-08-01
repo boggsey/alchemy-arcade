@@ -4,7 +4,7 @@ import {
   REGISTER_SUCCESS,
   REGISTER_FAILURE,
 } from './Register.constants';
-import receiveAuth from '../Auth/Auth.actions';
+import { receiveAuth } from '../Auth/Auth.actions';
 
 function requestRegister() {
   return {
