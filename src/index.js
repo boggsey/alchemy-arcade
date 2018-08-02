@@ -4,7 +4,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import 'whatwg-fetch';
-import './index.css';
+import './index.scss';
 import App from './components/App';
 import configureStore, { history } from './store/ConfigureStore';
 

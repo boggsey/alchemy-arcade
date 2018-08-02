@@ -1,4 +1,5 @@
 import { push } from 'connected-react-router';
+import { show, success, error, warning, info, hide, removeAll } from 'react-notification-system-redux';
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -43,17 +44,22 @@ async function loginRequest(user) {
   return response.json();
 }
 
-const login = (user) => {
+const login = (user) => { 
   return async (dispatch) => {
     dispatch(requestLogin(user));
     try {
       const data = await loginRequest(user);
-      window.localStorage.setItem('token', data.token);
-      dispatch(receiveLogin(data));
-      dispatch(receiveAuth());
-      dispatch(push('/roster'));
-    } catch (error) {
-      dispatch(errorLogin(error));
+      if (data.success) {
+        window.localStorage.setItem('token', data.token);
+        dispatch(receiveLogin(data));
+        dispatch(receiveAuth());
+        dispatch(push('/roster'));
+      } else {
+        dispatch(error({ message: data.error.message, autoDismiss: 30 }));
+      }
+    } catch (err) {
+      dispatch(error(err));
+      console.log(err);
     }
   };
 };
