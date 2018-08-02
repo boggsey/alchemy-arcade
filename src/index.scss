@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+@import url("./stars.scss");
+@import url("./cabinet.scss");
+@import url("./joystick.scss");
+@import url("./home-page.scss");
+@import url("./forms.scss");
+@import url("./buttons.scss");
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+nav {
+  position: fixed;
+  z-index: 9994;
+}
+
+main {
+
+  .inner-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+

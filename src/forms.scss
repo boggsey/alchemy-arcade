@@ -1,0 +1,28 @@
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 50%;
+
+  .form__field-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+  }
+
+  .form__field-label {
+    padding-bottom: 10px;
+  }
+
+  .form__field-input { 
+    padding: 10px;
+    background: transparent;
+    border: 2px solid #95d13c;
+    color: #95d13c;
+    font-size: 16px;
+  }
+
+  .form__submit-btn-wrapper {
+    padding-top: 20px;
+  }
+}

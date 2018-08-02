@@ -1,0 +1,56 @@
+.joystick {
+  border-radius: 15px;
+  display: inline-block;
+  height: 50px;
+  position: absolute;
+  width: 50px;
+  z-index: 9999;
+  left: 50%;
+  top: 0;
+}
+
+.joystick:before {
+  position: absolute;
+  top: -4px;
+  left: -2px;
+  content: '';
+  height: 40px;
+  width: 5px;
+  z-index: 9998;
+  background: #f5f6f6; /* Old browsers */
+  background: -moz-linear-gradient(top, #f5f6f6 0%, #dbdce2 21%, #b8bac6 49%, #dddfe3 80%, #f5f6f6 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #f5f6f6 0%,#dbdce2 21%,#b8bac6 49%,#dddfe3 80%,#f5f6f6 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #f5f6f6 0%,#dbdce2 21%,#b8bac6 49%,#dddfe3 80%,#f5f6f6 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f6f6', endColorstr='#f5f6f6',GradientType=0 );
+}
+
+.joystick:after {
+  background: radial-gradient(ellipse at 32px 0px, rgb(219, 97, 97) 1%, rgb(225, 55, 55) 11%, rgb(200, 0, 0) 100%);
+  border-radius: 50%;
+  box-shadow: inset 3px 5px 25px rgba(255, 0, 0, .5),
+  inset -10px -15px 45px rgba(0, 0, 0, .25),
+  15px 30px 15px 0 rgba(0, 0, 0, .3);
+  content: '';
+  display: block;
+  height: 50px;
+  width: 50px;
+  left: -24.5px;
+  position: absolute;
+  top: -20px;
+  transition: all .02s linear;
+  z-index: 9999;
+}
+
+.joystick-shadow {
+  border-radius: 50%;
+  background: #000;
+  height: 40px;
+  width: 40px;
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 9997;
+  left: calc(50% - 20px);
+  top: 15px;
+  transform:rotateX(30deg);
+}

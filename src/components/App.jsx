@@ -24,8 +24,9 @@ const style = {
       fontSize: '10px',
       paddingRight: '18px',
       paddingBottom: '10px',
-      lineHeight: '12px',
+      lineHeight: '16px',
       margin: '10px 0 10px 0',
+      height: 'auto !important',
     },
     error: {
       boxShadow: 'none',

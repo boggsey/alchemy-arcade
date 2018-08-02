@@ -1,0 +1,123 @@
+.cabinet-top {
+  height: 20vh;
+  position: relative;
+
+  .cabinet-top-face {
+    background: #333;
+    height: 100%;
+    width: 75%;
+    margin: 0 auto;
+    position: relative;
+ 
+    &:before,
+    &:after {
+      width: 30px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      background: #777;
+      content: ' ';
+      z-index: 2;
+    }
+    &:before { left: -30px;}
+    &:after { right: -30px;}
+  }
+
+  .cabinet-top-support {
+    height: 10px;
+    width: calc(80% - 60px);
+    margin: 0 auto;
+    background: #222;
+    position: relative;
+    bottom: 0;
+    z-index: 9999;
+
+    &:before,
+    &:after {
+      width: 30px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      background: #666;
+      content: ' ';
+      z-index: 2;
+    }
+    &:before { left: -17px; transform:skewX(-160deg)}
+    &:after { right: -17px; transform:skewX(-20deg);}
+  }
+}
+
+.cabinet-viewport {
+  position: relative;
+  height: 65vh;
+  width: calc(80% - 52px);
+  margin: 0 auto;
+
+  &:before,
+    &:after {
+      width: 30px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      background: #555;
+      content: ' ';
+      z-index: 2;
+    }
+    &:before { left: 0px;}
+    &:after { right: 0px;}
+
+    .cabinet-screen {
+      background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+      position: relative;
+      width: calc(100% - 60px);
+      margin: 0 auto;
+      height: 100%;
+      overflow: hidden;
+    }
+}
+
+.cabinet-bottom {
+  height: 15vh;
+
+  .cabinet-panel {
+    height: 70px;
+    width: calc(80% - 60px);
+    margin: 0 auto;
+    background: #222;
+    position: relative;
+
+    &:before,
+    &:after {
+      width: 30px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      background: #666;
+      content: ' ';
+      z-index: 2;
+    }
+    &:before { left: -17px; transform:skewX(160deg)}
+    &:after { right: -17px; transform:skewX(20deg);}
+  }
+
+  .cabinet-bottom-face {
+    height: 50px;
+    width: 80%;
+    margin: 0 auto;
+    background: #333;
+    position: relative;
+
+    &:before,
+    &:after {
+      width: 30px;
+      height: 50px;
+      position: absolute;
+      top: 0;
+      background: #777;
+      content: ' ';
+      z-index: 2;
+    }
+    &:before { left: 0px; }
+    &:after { right: 0px; }
+  }
+}
