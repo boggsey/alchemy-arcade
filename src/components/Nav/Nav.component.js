@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import './nav.scss';
+import './Nav.scss';
 
 const Nav = ({ isAuthenticated, receiveLogout }) => (
   <nav>

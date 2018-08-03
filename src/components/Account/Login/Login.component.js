@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import LoginSchema from './Login.schema';
 import login from './Login.actions';
+import '../../../styles/index.scss';
 
 const LoginForm = props => (
   <Formik

@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import Notifications from 'react-notification-system-redux';
-import { receiveLogout } from './Account/Auth/Auth.actions';
-import Nav from './Nav';
-import Main from './Main';
-import '../cabinet.scss';
+import { receiveLogout } from '../Account/Auth/Auth.actions';
+import Nav from '../../components/Nav/Nav.component';
+import Main from '../../components/Main/Main.component';
+import './cabinet.scss';
+import './joystick.scss';
+import './stars.scss';
 
 const style = {
   Containers: {

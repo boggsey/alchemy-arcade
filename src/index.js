@@ -4,9 +4,9 @@ import { ConnectedRouter } from 'connected-react-router';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import 'whatwg-fetch';
-import './index.scss';
-import App from './components/App';
 import configureStore, { history } from './store/ConfigureStore';
+import App from './components/App/App.component';
+import './styles/index.scss';
 
 const { persistor, store } = configureStore();
 

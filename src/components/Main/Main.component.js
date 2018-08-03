@@ -1,12 +1,13 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import PrivateRoute from './Utils/PrivateRoute';
-import HomePage from '../pages/HomePage';
-import LoginPage from '../pages/LoginPage';
-import PlayerPage from '../pages/PlayerPage';
-import RegisterPage from '../pages/RegisterPage';
-import RosterPage from '../pages/RosterPage';
+import PrivateRoute from '../Utils/PrivateRoute';
+import HomePage from '../../pages/HomePage';
+import LoginPage from '../../pages/LoginPage';
+import PlayerPage from '../../pages/PlayerPage';
+import RegisterPage from '../../pages/RegisterPage';
+import RosterPage from '../../pages/RosterPage';
+import './Main.scss';
 
 const Main = ({ isAuthenticated }) => (
   <main>

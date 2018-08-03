@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
-import '../../../tables.scss';
 import getRosterList from './RosterList.actions';
 import RosterDelete from '../RosterDelete/RosterDelete.component';
+import './RosterList.scss';
 
 class RosterList extends Component {
 
