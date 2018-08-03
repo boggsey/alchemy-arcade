@@ -7,6 +7,7 @@ import LoginPage from '../../pages/LoginPage';
 import PlayerPage from '../../pages/PlayerPage';
 import RegisterPage from '../../pages/RegisterPage';
 import RosterPage from '../../pages/RosterPage';
+import ErrorPage from '../../pages/ErrorPage';
 import './Main.scss';
 
 const Main = ({ isAuthenticated }) => (
@@ -15,7 +16,7 @@ const Main = ({ isAuthenticated }) => (
       <Route exact path="/" component={HomePage} />
       <Route path="/login" component={LoginPage} />
       <Route path="/register" component={RegisterPage} />
-      {/* <Route component={NoMatch} /> */}
+      <Route component={ErrorPage} />
       <PrivateRoute
         path="/roster"
         component={RosterPage}
