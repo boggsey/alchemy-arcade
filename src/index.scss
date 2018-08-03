@@ -21,8 +21,10 @@ body {
 }
 
 nav {
-  position: fixed;
+  position: absolute;
   z-index: 9994;
+  top: 20px;
+  left: 10px;
 }
 
 main {
@@ -34,4 +36,3 @@ main {
     justify-content: center;
   }
 }
-

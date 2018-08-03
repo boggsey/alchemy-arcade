@@ -26,7 +26,7 @@ const style = {
       paddingBottom: '10px',
       lineHeight: '16px',
       margin: '10px 0 10px 0',
-      height: 'auto !important',
+      height: 'auto',
     },
     error: {
       boxShadow: 'none',

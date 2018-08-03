@@ -55,7 +55,7 @@ const login = (user) => {
         dispatch(receiveAuth());
         dispatch(push('/roster'));
       } else {
-        dispatch(error({ position: 'tr', message: data.error.message, autoDismiss: 30 }));
+        dispatch(error({ position: 'tr', message: data.error.message, autoDismiss: 10 }));
       }
     } catch (err) {
       dispatch(error(err));
