@@ -12,7 +12,7 @@ const RosterAdd = (props) => {
         first_name: '',
         last_name: '',
         rating: '',
-        handedness: '',
+        handedness: 'left',
       }}
       validationSchema={RosterAddSchema}
       onSubmit={async (values) => {
@@ -47,7 +47,6 @@ const RosterAdd = (props) => {
               onBlur={handleBlur}
             />
           </div>
-          {touched.first_name && errors.first_name && <div>{errors.first_name}</div>}
 
           <div className="form__field-wrapper">
             <label className="form__field-label" htmlFor="lastName">Last Name</label>
@@ -62,7 +61,6 @@ const RosterAdd = (props) => {
               onBlur={handleBlur}
             />
           </div>
-          {touched.last_name && errors.last_name && <div>{errors.last_name}</div>}
 
           <div className="form__field-wrapper">
             <label className="form__field-label" htmlFor="rating">Rating</label>
@@ -77,7 +75,6 @@ const RosterAdd = (props) => {
               onBlur={handleBlur}
             />
           </div>
-          {touched.rating && errors.rating && <div>{errors.rating}</div>}
 
           <div className="form__field-wrapper">
             <label className="form__field-label" htmlFor="handedness">Handedness</label>
@@ -93,8 +90,15 @@ const RosterAdd = (props) => {
             </select>
           </div>
 
+          <div className="form__field-error-wrapper">
+            {touched.first_name && errors.first_name && <span className="form__field-error">{errors.first_name}</span>}
+            {touched.last_name && errors.last_name && <span className="form__field-error">{errors.last_name}</span>}
+            {touched.rating && errors.rating && <span className="form__field-error">{errors.rating}</span>}
+            {touched.handedness && errors.handedness && <span className="form__field-error">{errors.handedness}</span>}
+          </div>
+       
           <div className="form__submit-btn-wrapper">
-            <button className="form__submit-btn" id="create" type="submit" disabled={isSubmitting}>Add Player</button>
+            <button className="form__submit-btn" id="create" type="submit">Add Player</button>
           </div>
         </form>
         )}

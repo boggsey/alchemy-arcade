@@ -10,24 +10,22 @@ import RosterPage from '../pages/RosterPage';
 
 const Main = ({ isAuthenticated }) => (
   <main>
-    <div className="inner-content">
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/login" component={LoginPage} />
-        <Route path="/register" component={RegisterPage} />
-        {/* <Route component={NoMatch} /> */}
-        <PrivateRoute
-          path="/roster"
-          component={RosterPage}
-          isAuthenticated={isAuthenticated}
-        />
-        <PrivateRoute
-          path="/player/new"
-          component={PlayerPage}
-          isAuthenticated={isAuthenticated}
-        />
-      </Switch>
-    </div>
+    <Switch>
+      <Route exact path="/" component={HomePage} />
+      <Route path="/login" component={LoginPage} />
+      <Route path="/register" component={RegisterPage} />
+      {/* <Route component={NoMatch} /> */}
+      <PrivateRoute
+        path="/roster"
+        component={RosterPage}
+        isAuthenticated={isAuthenticated}
+      />
+      <PrivateRoute
+        path="/player/new"
+        component={PlayerPage}
+        isAuthenticated={isAuthenticated}
+      />
+    </Switch>
   </main>
 );
 

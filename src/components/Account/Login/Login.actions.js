@@ -1,5 +1,5 @@
 import { push } from 'connected-react-router';
-import { show, success, error, warning, info, hide, removeAll } from 'react-notification-system-redux';
+import { error } from 'react-notification-system-redux';
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -55,11 +55,12 @@ const login = (user) => {
         dispatch(receiveAuth());
         dispatch(push('/roster'));
       } else {
-        dispatch(error({ position: 'tr', message: data.error.message, autoDismiss: 10 }));
+        dispatch(errorLogin());
+        dispatch(error({ position: 'tr', message: data.error.message, autoDismiss: 30 }));
       }
     } catch (err) {
-      dispatch(error(err));
-      console.log(err);
+      dispatch(errorLogin());
+      dispatch(error({ position: 'tr', message: err.message, autoDismiss: 10 }));
     }
   };
 };

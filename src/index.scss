@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 @import url("./stars.scss");
-@import url("./cabinet.scss");
 @import url("./joystick.scss");
 @import url("./home-page.scss");
 @import url("./forms.scss");
@@ -28,11 +27,10 @@ nav {
 }
 
 main {
-
-  .inner-content {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: scroll; 
 }

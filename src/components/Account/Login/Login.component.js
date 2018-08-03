@@ -45,7 +45,6 @@ const LoginForm = props => (
             spellCheck="false"
           />
         </div>
-        {touched.email && errors.email && <div>{errors.email}</div>}
 
         <div className="form__field-wrapper">
           <label className="form__field-label" htmlFor="password">Password</label>
@@ -59,7 +58,11 @@ const LoginForm = props => (
             onBlur={handleBlur}
           />
         </div>
-        {touched.password && errors.password && <div>{errors.password}</div>}
+
+        <div className="form__field-error-wrapper">
+          {touched.email && errors.email && <span className="form__field-error">{errors.email}</span>}
+          {touched.password && errors.password && <span className="form__field-error">{errors.password}</span>}
+        </div>
 
         <div className="form__submit-btn-wrapper">
           <button className="form__submit-btn" id="login" type="submit">Login</button>

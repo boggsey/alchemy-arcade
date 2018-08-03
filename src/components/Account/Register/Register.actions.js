@@ -1,4 +1,5 @@
 import { push } from 'connected-react-router';
+import { error } from 'react-notification-system-redux';
 import {
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
@@ -41,12 +42,18 @@ const register = (user) => {
     dispatch(requestRegister());
     try {
       const data = await registerRequest(user);
-      window.localStorage.setItem('token', data.token);
-      dispatch(receiveRegister(data));
-      dispatch(receiveAuth());
-      dispatch(push('/roster'));
-    } catch (error) {
+      if (data.success) {
+        window.localStorage.setItem('token', data.token);
+        dispatch(receiveRegister(data));
+        dispatch(receiveAuth());
+        dispatch(push('/roster'));
+      } else {
+        dispatch(errorRegister());
+        dispatch(error({ position: 'tr', message: data.error.message, autoDismiss: 30 }));
+      }
+    } catch (err) {
       dispatch(errorRegister());
+      dispatch(error({ position: 'tr', message: err.message, autoDismiss: 10 }));
     }
   };
 };

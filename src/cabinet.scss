@@ -2,12 +2,20 @@
   height: 20vh;
   position: relative;
 
+  @media only screen and (max-width: 420px) {
+    height: 5vh;
+  }
+
   .cabinet-top-face {
     background: #333;
     height: 100%;
     width: 75%;
     margin: 0 auto;
     position: relative;
+
+    @media only screen and (max-width: 420px) {
+      width: calc(100% - 50px);
+    }
  
     &:before,
     &:after {
@@ -32,6 +40,10 @@
     bottom: 0;
     z-index: 9999;
 
+    @media only screen and (max-width: 420px) {
+      width: calc(100% - 30px);
+    }
+    
     &:before,
     &:after {
       width: 30px;
@@ -52,6 +64,15 @@
   height: 65vh;
   width: calc(80% - 52px);
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  background: #222;
+  background: radial-gradient(ellipse at center, #444 0, #222 100%);
+
+  @media only screen and (max-width: 420px) {
+    width: calc(100%);
+    height: auto;
+  }
 
   &:before,
     &:after {
@@ -68,10 +89,13 @@
 
     .cabinet-screen {
       background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+      -webkit-box-shadow:inset 0 0 10px 0 #000;
+      box-shadow:inset 0 0 10px 0 #000;
       position: relative;
-      width: calc(100% - 60px);
+      width: 85%;
+      height: 85%;
+      border-radius: 30px;
       margin: 0 auto;
-      height: 100%;
       overflow: hidden;
     }
 }
@@ -86,6 +110,11 @@
     background: #222;
     position: relative;
 
+    @media only screen and (max-width: 420px) {
+      height: 40px;
+      width: calc(100% - 20px);
+    }
+
     &:before,
     &:after {
       width: 30px;
@@ -97,7 +126,7 @@
       z-index: 2;
     }
     &:before { left: -17px; transform:skewX(160deg)}
-    &:after { right: -17px; transform:skewX(20deg);}
+    &:after { right: -17px; transform:skewX(20deg);} 
   }
 
   .cabinet-bottom-face {
@@ -106,6 +135,11 @@
     margin: 0 auto;
     background: #333;
     position: relative;
+
+    @media only screen and (max-width: 420px) {
+      height: 30px;
+      width: calc(100%);
+    }
 
     &:before,
     &:after {
@@ -116,8 +150,24 @@
       background: #777;
       content: ' ';
       z-index: 2;
+
+      @media only screen and (max-width: 420px) {
+        height: 30px;
+      }
     }
-    &:before { left: 0px; }
-    &:after { right: 0px; }
+    &:before { 
+      left: 0px; 
+
+      @media only screen and (max-width: 420px) {
+        left: -15px;
+      }
+    }
+    &:after { 
+      right: 0px; 
+
+      @media only screen and (max-width: 420px) {
+        right: -15px;
+      }
+    }
   }
 }

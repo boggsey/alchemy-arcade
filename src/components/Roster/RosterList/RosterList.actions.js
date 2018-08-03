@@ -1,3 +1,4 @@
+import { error } from 'react-notification-system-redux';
 import {
   ROSTER_LIST_REQUEST,
   ROSTER_LIST_SUCCESS,
@@ -24,25 +25,31 @@ function errorRosterList() {
 }
 
 async function rosterListRequest(token) {
-  const response = await fetch('https://players-api.developer.alchemy.codes/api/players', {
+  const response = await fetch('https://players-api.developer.alchemy.codes/api/players/', {
     headers: {
       Authorization: `Bearer ${token}`,
     },
     method: 'GET',
+  }).catch((err) => {
+    throw new Error(err.message);
   });
   return response.json();
 }
 
-const getRosterList = (token) => {
+const getRosterList = (token) => { 
   return async (dispatch) => {
     dispatch(requestRosterList());
     try {
       const data = await rosterListRequest(token);
-      dispatch(receiveRosterList(data.players));
-      return data;
-    } catch (error) {
+      if (data.success) {
+        dispatch(receiveRosterList(data.players));
+      } else {
+        dispatch(errorRosterList());
+        dispatch(error({ position: 'tr', message: data.error.message, autoDismiss: 10 }));
+      }
+    } catch (err) {
       dispatch(errorRosterList());
-      console.log(error);
+      dispatch(error(err));
     }
   };
 };

@@ -4,6 +4,10 @@ form {
   padding: 20px;
   width: 50%;
 
+  @media only screen and (max-width: 420px) {
+    width: 90%;
+  }
+
   .form__field-wrapper {
     display: flex;
     flex-direction: column;
@@ -24,5 +28,17 @@ form {
 
   .form__submit-btn-wrapper {
     padding-top: 20px;
+  }
+
+  .form__field-error-wrapper {
+    padding-top: 10px;
+  }
+
+  .form__field-error {
+    color: #e62325;
+    font-family: Arial;
+    font-size: 12px;
+    padding: 5px 5px 0 0;
+    display: inline-block;
   }
 }

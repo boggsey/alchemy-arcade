@@ -6,6 +6,7 @@ import Notifications from 'react-notification-system-redux';
 import { receiveLogout } from './Account/Auth/Auth.actions';
 import Nav from './Nav';
 import Main from './Main';
+import '../cabinet.scss';
 
 const style = {
   Containers: {

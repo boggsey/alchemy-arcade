@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
+import '../../../tables.scss';
 import getRosterList from './RosterList.actions';
 import RosterDelete from '../RosterDelete/RosterDelete.component';
 
@@ -15,7 +16,7 @@ class RosterList extends Component {
   async getTableData() {
     const token = window.localStorage.getItem('token');
     try {
-      const data = await this.props.getRosterList(token);
+      await this.props.getRosterList(token);
     } catch (error) {
       console.log(error);
     }
@@ -23,46 +24,53 @@ class RosterList extends Component {
 
   render() {
     return (
-      <div>
-        <ReactTable
-          data={this.props.players}
-          columns={[
-            {
-              columns: [
-                {
-                  Header: 'First Name',
-                  accessor: 'first_name',
-                },
-                {
-                  Header: 'Last Name',
-                  id: 'last_name',
-                  accessor: 'last_name',
-                },
-                {
-                  Header: 'Rating',
-                  id: 'rating',
-                  accessor: 'rating',
-                },
-                {
-                  Header: 'Handedness',
-                  id: 'handedness',
-                  accessor: 'handedness',
-                },
-                {
-                  Header: 'Actions',
-                  id: 'actions',
-                  accessor: 'id',
-                  Cell: row => (
-                    <RosterDelete id={row.value} />
-                  ),
-                },
-              ],
-            },
-          ]}
-          defaultPageSize={10}
-          className="-striped -highlight"
-        />
-      </div>
+      <ReactTable
+        data={this.props.players}
+        noDataText="Take me to your leader"
+        defaultSorted={[
+          {
+            id: 'rating',
+            desc: true,
+          },
+        ]}
+        resizable={false}
+        sortable={false}
+        showPageSizeOptions={false}
+        columns={[
+          {
+            columns: [
+              {
+                Header: 'First Name',
+                accessor: 'first_name',
+              },
+              {
+                Header: 'Last Name',
+                id: 'last_name',
+                accessor: 'last_name',
+              },
+              {
+                Header: 'Rating',
+                id: 'rating',
+                accessor: 'rating',
+              },
+              {
+                Header: 'Handedness',
+                id: 'handedness',
+                accessor: 'handedness',
+              },
+              {
+                Header: 'Actions',
+                id: 'actions',
+                accessor: 'id',
+                Cell: row => (
+                  <RosterDelete playerId={row.value} />
+                ),
+              },
+            ],
+          },
+        ]}
+        defaultPageSize={5}
+      />
     );
   }
 }

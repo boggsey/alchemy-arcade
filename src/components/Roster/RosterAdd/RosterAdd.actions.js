@@ -1,4 +1,5 @@
 import { push } from 'connected-react-router';
+import { error } from 'react-notification-system-redux';
 import {
   ROSTER_ADD_REQUEST,
   ROSTER_ADD_SUCCESS,
@@ -31,6 +32,8 @@ async function rosterAddRequest(player, token) {
     },
     method: 'POST',
     body: JSON.stringify(player),
+  }).catch((err) => {
+    throw new Error(err.message);
   });
   return response.json();
 }
@@ -40,10 +43,16 @@ const rosterAdd = (player, token) => {
     dispatch(requestRosterAdd());
     try {
       const data = await rosterAddRequest(player, token);
-      dispatch(receiveRosterAdd());
-      dispatch(push('/roster'));
-    } catch (error) {
+      if (data.success) {
+        dispatch(receiveRosterAdd());
+        dispatch(push('/roster'));
+      } else {
+        dispatch(errorRosterAdd());
+        dispatch(error({ position: 'tr', message: data.error.message, autoDismiss: 30 }));
+      }
+    } catch (err) {
       dispatch(errorRosterAdd());
+      dispatch(error({ position: 'tr', message: err.message, autoDismiss: 10 }));
     }
   };
 };

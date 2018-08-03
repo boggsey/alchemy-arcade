@@ -12,7 +12,8 @@ class RosterDelete extends Component {
   async handleClick() {
     const token = window.localStorage.getItem('token');
     try {
-      const data = await this.props.deletePlayer(this.props.id, token);
+      console.log('props id', this.props.playerId);
+      await this.props.deletePlayer(this.props.playerId, token);
     } catch (error) {
       console.log(error);
     }
@@ -28,7 +29,7 @@ class RosterDelete extends Component {
 }
 
 RosterDelete.propTypes = {
-  id: PropTypes.string.isRequired,
+  playerId: PropTypes.string.isRequired,
   deletePlayer: PropTypes.func.isRequired,
 };
 

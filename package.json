@@ -1,5 +1,5 @@
 {
-  "name": "players-react-skeleton",
+  "name": "alchemy-arcade",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
@@ -7,7 +7,8 @@
     "build": "cross-env NODE_ENV=production parcel build index.html --public-url",
     "e2e": "cypress open",
     "lint:js": "eslint src/**/**/*.js src/**/**/*.jsx tests/**/**/*.js",
-    "lint:style": "stylelint src/**/**/*.css src/**/**/*.scss"
+    "lint:style": "stylelint src/**/**/*.css src/**/**/*.scss",
+    "jest": "jest --watch"
   },
   "dependencies": {
     "babel-preset-react-app": "^3.1.2",
@@ -15,8 +16,11 @@
     "connected-react-router": "^4.3.0",
     "cross-env": "^5.2.0",
     "cypress": "^3.0.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "formik": "^1.0.1",
     "history": "^4.7.2",
+    "jest": "^23.4.2",
     "node-sass": "^4.9.2",
     "parcel-bundler": "^1.9.7",
     "prop-types": "^15.6.2",
@@ -45,7 +49,14 @@
     "eslint-plugin-react": "^7.10.0",
     "prettier": "^1.13.7",
     "prettierrc": "0.0.0-5",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^16.4.2",
+    "redux-mock-store": "^1.5.3",
     "stylelint": "^9.3.0",
     "stylelint-config-standard": "^18.2.0"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./tests/unit/setupTests.js",
+    "testURL": "http://localhost:3000"
   }
 }

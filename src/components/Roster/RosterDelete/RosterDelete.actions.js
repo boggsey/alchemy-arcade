@@ -1,3 +1,4 @@
+import { error } from 'react-notification-system-redux';
 import {
   ROSTER_DELETE_REQUEST,
   ROSTER_DELETE_SUCCESS,
@@ -29,6 +30,8 @@ async function rosterDeleteRequest(id, token) {
       Authorization: `Bearer ${token}`,
     },
     method: 'DELETE',
+  }).catch((err) => {
+    throw new Error(err.message);
   });
   return response.json();
 }
@@ -38,11 +41,16 @@ const deletePlayer = (player, token) => {
     dispatch(requestRosterDelete());
     try {
       const data = await rosterDeleteRequest(player, token);
-      dispatch(receiveRosterDelete());
-      dispatch(getRosterList(token));
-      return data;
-    } catch (error) {
+      if (data.success) {
+        dispatch(receiveRosterDelete());
+        dispatch(getRosterList(token));
+      } else {
+        dispatch(errorRosterDelete());
+        dispatch(error({ position: 'tr', message: data.error.message, autoDismiss: 30 }));
+      }
+    } catch (err) {
       dispatch(errorRosterDelete());
+      dispatch(error({ position: 'tr', message: err.message, autoDismiss: 10 }));
     }
   };
 };
