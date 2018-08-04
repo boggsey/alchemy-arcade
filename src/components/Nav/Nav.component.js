@@ -10,7 +10,7 @@ const Nav = ({ isAuthenticated, receiveLogout }) => (
         <React.Fragment>
           <Link to="/roster">Roster</Link>
           <Link to="/player/new">Add New</Link>
-          <Link to="/" onClick={receiveLogout}>Logout</Link>
+          <Link to="/" onClick={receiveLogout}>Quit</Link>
         </React.Fragment>
       )
     }
