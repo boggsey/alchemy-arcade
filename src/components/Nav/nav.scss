@@ -5,6 +5,11 @@ nav {
   left: 10px;
 
   a {
-    color: green;
+    color: white;
+    display: inline-block;
+    padding-right: 5px;
+    font: 600 14px/18px 'Arial';
+    text-transform: uppercase;
+    text-decoration: none;
   }
 }

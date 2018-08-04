@@ -1,0 +1,15 @@
+@import '../../styles/variables.scss';
+
+.cabinet-screen.error-page {
+  background: $error-blue !important;
+  
+  #stars, #stars2, #stars3 {
+    display: none;
+  }
+
+  .message {
+    text-align: center;
+    font: 400 24px/36px 'Press Start 2P', Arial;
+    color: #fff;
+  }
+}

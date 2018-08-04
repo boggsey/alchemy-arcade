@@ -5,12 +5,12 @@ import './Nav.scss';
 
 const Nav = ({ isAuthenticated, receiveLogout }) => (
   <nav>
-    <Link to="/">Home</Link>
     {
       isAuthenticated && (
         <React.Fragment>
           <Link to="/roster">Roster</Link>
-          <Link to="/roster" onClick={receiveLogout}>Logout</Link>
+          <Link to="/player/new">Add New</Link>
+          <Link to="/" onClick={receiveLogout}>Logout</Link>
         </React.Fragment>
       )
     }

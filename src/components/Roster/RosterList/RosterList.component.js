@@ -7,7 +7,7 @@ import getRosterList from './RosterList.actions';
 import RosterDelete from '../RosterDelete/RosterDelete.component';
 import './RosterList.scss';
 
-class RosterList extends Component {
+export class RosterList extends Component {
 
   componentDidMount() {
     this.getTableData();
@@ -40,11 +40,11 @@ class RosterList extends Component {
           {
             columns: [
               {
-                Header: 'First Name',
+                Header: 'First',
                 accessor: 'first_name',
               },
               {
-                Header: 'Last Name',
+                Header: 'Last',
                 id: 'last_name',
                 accessor: 'last_name',
               },
@@ -54,7 +54,7 @@ class RosterList extends Component {
                 accessor: 'rating',
               },
               {
-                Header: 'Handedness',
+                Header: 'Hand',
                 id: 'handedness',
                 accessor: 'handedness',
               },

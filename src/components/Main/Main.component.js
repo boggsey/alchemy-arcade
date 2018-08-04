@@ -10,30 +10,41 @@ import RosterPage from '../../pages/RosterPage';
 import ErrorPage from '../../pages/ErrorPage';
 import './Main.scss';
 
-const Main = ({ isAuthenticated }) => (
-  <main>
-    <Switch>
-      <Route exact path="/" component={HomePage} />
-      <Route path="/login" component={LoginPage} />
-      <Route path="/register" component={RegisterPage} />
-      <Route component={ErrorPage} />
-      <PrivateRoute
-        path="/roster"
-        component={RosterPage}
-        isAuthenticated={isAuthenticated}
-      />
-      <PrivateRoute
-        path="/player/new"
-        component={PlayerPage}
-        isAuthenticated={isAuthenticated}
-      />
-    </Switch>
-  </main>
-);
+const Main = (props) => {
+  const { isAuthenticated } = props;
+  return (
+    <main>
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <HomePage
+              {...props}
+              isAuthenticated={isAuthenticated}
+            />
+          )}
+        />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/register" component={RegisterPage} />
+        <PrivateRoute
+          path="/roster"
+          component={RosterPage}
+          isAuthenticated={isAuthenticated}
+        />
+        <PrivateRoute
+          path="/player/new"
+          component={PlayerPage}
+          isAuthenticated={isAuthenticated}
+        />
+        <Route component={ErrorPage} />
+      </Switch>
+    </main>
+  );
+};
 
 Main.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
 };
 
 export default Main;
-

@@ -15,7 +15,7 @@ const LoginForm = props => (
     validationSchema={LoginSchema}
     onSubmit={async (values) => {
       try {
-        const loginReturn = await props.login(values);
+        await props.login(values);
       } catch (error) {
         console.log(error);
       }

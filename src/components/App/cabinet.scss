@@ -7,14 +7,23 @@
   }
 
   .cabinet-top-face {
-    background: #333;
+    background: #333 url('darkwood.png');
     height: 100%;
     width: 75%;
     margin: 0 auto;
     position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     @media only screen and (max-width: 420px) {
       width: calc(100% - 50px);
+    }
+
+    svg {
+      height: 70%;
+      fill: #221710;
     }
  
     &:before,
@@ -107,7 +116,8 @@
     height: 70px;
     width: calc(80% - 60px);
     margin: 0 auto;
-    background: #222;
+    background: #222 linear-gradient(black, transparent);
+    background-position: cover;
     position: relative;
 
     @media only screen and (max-width: 420px) {
@@ -133,7 +143,7 @@
     height: 50px;
     width: 80%;
     margin: 0 auto;
-    background: #333;
+    background: #333 url('darkwood.png');
     position: relative;
 
     @media only screen and (max-width: 420px) {

@@ -2,10 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import SVGInline from 'react-svg-inline';
 import Notifications from 'react-notification-system-redux';
 import { receiveLogout } from '../Account/Auth/Auth.actions';
 import Nav from '../../components/Nav/Nav.component';
 import Main from '../../components/Main/Main.component';
+import AlchemyLogo from './alchemy.svg';
 import './cabinet.scss';
 import './joystick.scss';
 import './stars.scss';
@@ -45,16 +47,18 @@ const style = {
 };
 
 const App = (props) => {
-  const { isAuthenticated, logout, notifications } = props;
+  const { isAuthenticated, logout, notifications, location } = props;
 
   return (
     <div>
       <div className="cabinet-top">
-        <div className="cabinet-top-face" />
+        <div className="cabinet-top-face">
+          <SVGInline svg={ AlchemyLogo } />
+        </div>
         <div className="cabinet-top-support" />
       </div>
       <div className="cabinet-viewport">
-        <div className="cabinet-screen">
+        <div className={`cabinet-screen ${location.pathname === '/error' ? 'error-page' : null}`}>
           <Notifications notifications={notifications} style={style} />
           <Nav isAuthenticated={isAuthenticated} receiveLogout={logout} />
           <Main isAuthenticated={isAuthenticated} />
@@ -82,6 +86,7 @@ App.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
   logout: PropTypes.func.isRequired,
   notifications: PropTypes.arrayOf(PropTypes.object),
+  location: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
