@@ -41,6 +41,11 @@ form {
     font-family: 'Press Start 2P';
     font-size: 10px;
     padding-left: 20px;
+
+    @media only screen and (max-width: 420px) {
+      display: block;
+      padding: 25px 0 0 0;
+    }
   }
 
   .form__field-error-wrapper {
