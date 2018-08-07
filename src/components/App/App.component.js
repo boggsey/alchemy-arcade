@@ -53,7 +53,7 @@ const App = (props) => {
     <div>
       <div className="cabinet-top">
         <div className="cabinet-top-face">
-          <SVGInline svg={ AlchemyLogo } />
+          <SVGInline svg={AlchemyLogo} />
         </div>
         <div className="cabinet-top-support" />
       </div>

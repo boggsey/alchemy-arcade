@@ -7,6 +7,10 @@
   z-index: 9999;
   left: 50%;
   top: 0;
+
+  @media only screen and (max-width: 420px) {
+    top: -15px;
+  }
 }
 
 .joystick:before {
@@ -53,4 +57,8 @@
   left: calc(50% - 20px);
   top: 15px;
   transform:rotateX(30deg);
+
+  @media only screen and (max-width: 420px) {
+    top: 0;
+  }
 }

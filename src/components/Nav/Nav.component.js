@@ -8,8 +8,6 @@ const Nav = ({ isAuthenticated, receiveLogout }) => (
     {
       isAuthenticated && (
         <React.Fragment>
-          <Link to="/roster">Roster</Link>
-          <Link to="/player/new">Add New</Link>
           <Link to="/" onClick={receiveLogout}>Quit</Link>
         </React.Fragment>
       )

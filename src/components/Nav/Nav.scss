@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 nav {
   position: absolute;
   z-index: 9994;
@@ -8,6 +10,7 @@ nav {
     color: white;
     display: inline-block;
     padding-right: 5px;
+    color: $alchemy-green;
     font: 600 14px/18px 'Arial';
     text-transform: uppercase;
     text-decoration: none;

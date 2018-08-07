@@ -27,18 +27,26 @@ export class RosterList extends Component {
       <ReactTable
         data={this.props.players}
         noDataText="Take me to your leader"
+        minWidth="100%"
         defaultSorted={[
           {
             id: 'rating',
-            desc: true,
+            desc: false,
           },
         ]}
         resizable={false}
         sortable={false}
+        minRows="0"
         showPageSizeOptions={false}
         columns={[
           {
             columns: [
+              {
+                Header: 'Rating',
+                id: 'rating',
+                accessor: 'rating',
+                className: '-rating',
+              },
               {
                 Header: 'First',
                 accessor: 'first_name',
@@ -47,11 +55,6 @@ export class RosterList extends Component {
                 Header: 'Last',
                 id: 'last_name',
                 accessor: 'last_name',
-              },
-              {
-                Header: 'Rating',
-                id: 'rating',
-                accessor: 'rating',
               },
               {
                 Header: 'Hand',
@@ -70,6 +73,7 @@ export class RosterList extends Component {
           },
         ]}
         defaultPageSize={5}
+        className="-striped -highlight"
       />
     );
   }

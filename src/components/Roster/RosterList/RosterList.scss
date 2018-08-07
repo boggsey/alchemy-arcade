@@ -1,3 +1,5 @@
+@import '../../../styles/variables.scss';
+
 .ReactTable {
   background: transparent;
   height: 300px;
@@ -8,6 +10,7 @@
 
   @media only screen and (max-width: 420px) {
     width: 100%;
+    min-width: 100%;
   }
 
   @media only screen and (max-width: 1024px) {
@@ -18,22 +21,40 @@
     overflow: visible;
   }
 
+  .rt-tr {
+    display: flex;
+    align-items: center;
+
+    @media only screen and (max-width: 420px) {
+      flex-flow: row wrap;
+      padding: 10px 0;
+    }
+  }
+
   .-headerGroups {
     display: none;
   }
 
   .rt-thead {
+    @media only screen and (max-width: 420px) {
+      display: none;
+    }
 
     &.-header {
       box-shadow: none;
     }
 
     .rt-th {
-      color: #95d13c;
+      color: #000;
+      background: $alchemy-green;
       border: 0;
       box-shadow: 0;
       padding: 20px 0;
       margin: 10px 0 10px 0;
+
+      &.-sort-asc {
+        box-shadow: none;
+      }
 
       &.-sort-desc {
         box-shadow: none;
@@ -42,15 +63,42 @@
   }
 
   .rt-tbody {
+    @media only screen and (max-width: 420px) {
+      min-width: 100% !important;
+      width: 100%;
+    }
+
     .rt-tr-group {
       border: 0;
+
+      @media only screen and (max-width: 420px) {
+        min-width: 100%;
+        width: 100%;
+      }
+    }
+
+    .tr-tr {
+      display: flex;
+      flex-direction: column !important;
+
+      @media only screen and (max-width: 420px) {
+        min-width: 100%;
+        width: 100%;
+      }
     }
 
     .rt-td {
       border-right: 0;
-      color: #95d13c;
+      color: $alchemy-green;
       text-transform: capitalize;
       text-align: center;
+    }
+
+    .-rating {
+      @media only screen and (max-width: 420px) {
+        color: #000;
+        background: $alchemy-green;
+      }
     }
   }
 
@@ -61,6 +109,10 @@
       height: 50px;
       box-shadow: none;
       border: 0;
+
+      .-btn {
+        color: $alchemy-green;
+      }
   
       .-center {
         display: none;

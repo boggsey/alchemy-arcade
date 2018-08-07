@@ -2,8 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Formik } from 'formik';
+import Select from 'react-select';
 import RosterAddSchema from './RosterAdd.schema';
 import addPlayer from './RosterAdd.actions';
+
+const options = [
+  { value: 'left', label: 'Left' },
+  { value: 'right', label: 'Right' },
+];
 
 const RosterAdd = (props) => {
   return (
@@ -18,7 +24,7 @@ const RosterAdd = (props) => {
       onSubmit={async (values) => {
         const token = window.localStorage.getItem('token');
         try {
-          const rosterReturn = await props.addPlayer(values, token);
+          await props.addPlayer(values, token);
         } catch (error) {
           console.log(error);
         }
@@ -32,6 +38,7 @@ const RosterAdd = (props) => {
         handleSubmit,
         isSubmitting,
         setFieldValue,
+        setFieldTouched,
       }) => (
         <form className="registration-form" onSubmit={handleSubmit} noValidate>
           <div className="form__field-wrapper">
@@ -78,16 +85,14 @@ const RosterAdd = (props) => {
 
           <div className="form__field-wrapper">
             <label className="form__field-label" htmlFor="handedness">Handedness</label>
-            <select
-              name="handedness"
-              id="handedness"
-              value={values.handedness}
-              onChange={handleChange}
-              onBlur={handleBlur}
-            >
-              <option value="left">Left</option>
-              <option value="right">Right</option>
-            </select>
+            <Select
+              value={values.topics}
+              onChange={setFieldValue}
+              onBlur={setFieldTouched}
+              error={errors.topics}
+              touched={touched.topics}
+              options={options}
+            />
           </div>
 
           <div className="form__field-error-wrapper">
@@ -96,7 +101,7 @@ const RosterAdd = (props) => {
             {touched.rating && errors.rating && <span className="form__field-error">{errors.rating}</span>}
             {touched.handedness && errors.handedness && <span className="form__field-error">{errors.handedness}</span>}
           </div>
-       
+
           <div className="form__submit-btn-wrapper">
             <button className="form__submit-btn" id="create" type="submit">Add Player</button>
           </div>

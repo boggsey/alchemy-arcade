@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 form {
   display: flex;
   flex-direction: column;
@@ -21,9 +23,13 @@ form {
   .form__field-input { 
     padding: 10px;
     background: transparent;
-    border: 2px solid #95d13c;
+    border: 2px solid $alchemy-green;
     color: #95d13c;
     font-size: 16px;
+
+    &::placeholder {
+      color: #95d13c;
+    }
   }
 
   .form__submit-btn-wrapper {

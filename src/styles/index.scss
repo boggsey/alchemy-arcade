@@ -3,6 +3,10 @@
 
 html {
   box-sizing: border-box;
+
+  @media only screen and (max-width: 420px) {
+    overflow-x: hidden;
+  }
 }
 
 *, *:before, *:after {

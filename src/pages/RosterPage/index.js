@@ -1,5 +1,5 @@
 import React from 'react';
-import { RosterList } from '../../components/Roster/RosterList/RosterList.component';
+import RosterList from '../../components/Roster/RosterList/RosterList.component';
 
 const RosterPage = () => (
   <RosterList />
