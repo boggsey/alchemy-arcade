@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import getRosterList from './RosterList.actions';
@@ -24,57 +25,60 @@ export class RosterList extends Component {
 
   render() {
     return (
-      <ReactTable
-        data={this.props.players}
-        noDataText="Take me to your leader"
-        minWidth="100%"
-        defaultSorted={[
-          {
-            id: 'rating',
-            desc: false,
-          },
-        ]}
-        resizable={false}
-        sortable={false}
-        minRows="0"
-        showPageSizeOptions={false}
-        columns={[
-          {
-            columns: [
-              {
-                Header: 'Rating',
-                id: 'rating',
-                accessor: 'rating',
-                className: '-rating',
-              },
-              {
-                Header: 'First',
-                accessor: 'first_name',
-              },
-              {
-                Header: 'Last',
-                id: 'last_name',
-                accessor: 'last_name',
-              },
-              {
-                Header: 'Hand',
-                id: 'handedness',
-                accessor: 'handedness',
-              },
-              {
-                Header: 'Actions',
-                id: 'actions',
-                accessor: 'id',
-                Cell: row => (
-                  <RosterDelete playerId={row.value} />
-                ),
-              },
-            ],
-          },
-        ]}
-        defaultPageSize={5}
-        className="-striped -highlight"
-      />
+      <React.Fragment>
+        <Link to="/player/new" className="add-new">Add New Player</Link>
+        <ReactTable
+          data={this.props.players}
+          noDataText="Take me to your leader"
+          minWidth="100%"
+          defaultSorted={[
+            {
+              id: 'rating',
+              desc: false,
+            },
+          ]}
+          resizable={false}
+          sortable={false}
+          minRows="0"
+          showPageSizeOptions={false}
+          columns={[
+            {
+              columns: [
+                {
+                  Header: 'Rating',
+                  id: 'rating',
+                  accessor: 'rating',
+                  className: '-rating',
+                },
+                {
+                  Header: 'First',
+                  accessor: 'first_name',
+                },
+                {
+                  Header: 'Last',
+                  id: 'last_name',
+                  accessor: 'last_name',
+                },
+                {
+                  Header: 'Hand',
+                  id: 'handedness',
+                  accessor: 'handedness',
+                },
+                {
+                  Header: 'Actions',
+                  id: 'actions',
+                  accessor: 'id',
+                  Cell: row => (
+                    <RosterDelete playerId={row.value} />
+                  ),
+                },
+              ],
+            },
+          ]}
+          defaultPageSize={5}
+          className="-striped -highlight"
+        />
+      </React.Fragment>
     );
   }
 }

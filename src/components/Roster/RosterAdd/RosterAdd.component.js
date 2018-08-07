@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Formik } from 'formik';
+import { Link } from 'react-router-dom';
 import Select from 'react-select';
 import RosterAddSchema from './RosterAdd.schema';
 import addPlayer from './RosterAdd.actions';
@@ -104,6 +105,7 @@ const RosterAdd = (props) => {
 
           <div className="form__submit-btn-wrapper">
             <button className="form__submit-btn" id="create" type="submit">Add Player</button>
+            <Link to="/roster" className="form__submit-navigation">Back to Roster</Link>
           </div>
         </form>
         )}

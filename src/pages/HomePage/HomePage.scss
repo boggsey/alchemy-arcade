@@ -1,5 +1,7 @@
+@import '../../styles/variables.scss';
+
 .home-page {
-  color: #95d13c;
+  color: $alchemy-green;
   text-align: center;
 
   p {
@@ -11,7 +13,7 @@
       width: 220px;
       display: inline-block;
       text-align: center;
-      background-color: #95d13c;
+      background-color: $alchemy-green;
       color: black;
       font: 600 14px/14px Arial;
       text-decoration: none;

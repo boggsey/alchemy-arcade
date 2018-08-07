@@ -1,5 +1,14 @@
 @import '../../../styles/variables.scss';
 
+.add-new {
+  color: $alchemy-green;
+  border: 2px solid $alchemy-green;
+  font-family: 'Press Start 2P';
+  font-size: 10px;
+  padding: 10px;
+  text-decoration: none;
+}
+
 .ReactTable {
   background: transparent;
   height: 300px;

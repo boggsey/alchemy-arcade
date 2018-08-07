@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Formik } from 'formik';
+import { Link } from 'react-router-dom';
 import LoginSchema from './Login.schema';
 import login from './Login.actions';
 import '../../../styles/index.scss';
@@ -67,6 +68,7 @@ const LoginForm = props => (
 
         <div className="form__submit-btn-wrapper">
           <button className="form__submit-btn" id="login" type="submit">Login</button>
+          <Link to="/register" className="form__submit-navigation">Register</Link>
         </div>
       </form>
       )}

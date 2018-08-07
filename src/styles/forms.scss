@@ -36,6 +36,13 @@ form {
     padding-top: 20px;
   }
 
+  .form__submit-navigation {
+    color: $alchemy-green;
+    font-family: 'Press Start 2P';
+    font-size: 10px;
+    padding-left: 20px;
+  }
+
   .form__field-error-wrapper {
     padding-top: 10px;
   }

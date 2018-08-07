@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Formik } from 'formik';
+import { Link } from 'react-router-dom';
 import RegisterSchema from './Register.schema';
 import register from './Register.actions';
 
@@ -114,7 +115,8 @@ const RegisterForm = props => (
         </div>
 
         <div className="form__submit-btn-wrapper">
-          <button className="form__submit-btn" id="register" type="submit" disabled={isSubmitting}>Register</button>
+          <button className="form__submit-btn" id="register" type="submit">Register</button>
+          <Link to="/login" className="form__submit-navigation">Login</Link>
         </div>
       </form>
       )}
