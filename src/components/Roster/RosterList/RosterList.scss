@@ -23,11 +23,11 @@
 
   .rt-tr {
     display: flex;
-    align-items: center;
-
+    
     @media only screen and (max-width: 420px) {
       flex-flow: row wrap;
       padding: 10px 0;
+      align-items: center;
     }
   }
 
