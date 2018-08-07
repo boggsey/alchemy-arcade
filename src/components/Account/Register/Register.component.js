@@ -116,7 +116,7 @@ const RegisterForm = props => (
 
         <div className="form__submit-btn-wrapper">
           <button className="form__submit-btn" id="register" type="submit">Register</button>
-          <Link to="/login" className="form__submit-navigation">Login</Link>
+          <Link to="/login" className="form__submit-navigation">Go to Login</Link>
         </div>
       </form>
       )}

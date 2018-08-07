@@ -25,7 +25,7 @@ export class RosterList extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div className="roster_list-wrapper">
         <Link to="/player/new" className="add-new">Add New Player</Link>
         <ReactTable
           data={this.props.players}
@@ -75,10 +75,10 @@ export class RosterList extends Component {
               ],
             },
           ]}
-          defaultPageSize={5}
+          defaultPageSize={4}
           className="-striped -highlight"
         />
-      </React.Fragment>
+      </div>
     );
   }
 }

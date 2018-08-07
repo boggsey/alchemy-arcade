@@ -1,5 +1,20 @@
 @import '../../../styles/variables.scss';
 
+.roster_list-wrapper {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  @media only screen and (max-width: 420px) {
+    width: 95%;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    width: 80%;
+  }
+}
+
 .add-new {
   color: $alchemy-green;
   border: 2px solid $alchemy-green;
@@ -7,12 +22,13 @@
   font-size: 10px;
   padding: 10px;
   text-decoration: none;
+  margin-left: auto;
 }
 
 .ReactTable {
   background: transparent;
   height: 300px;
-  width: 60%;
+  width: 100%;
   border: 0;
   font-family: 'Press Start 2P';
   font-size: 10px;
@@ -20,6 +36,7 @@
   @media only screen and (max-width: 420px) {
     width: 100%;
     min-width: 100%;
+    height: auto;
   }
 
   @media only screen and (max-width: 1024px) {
@@ -75,6 +92,7 @@
     @media only screen and (max-width: 420px) {
       min-width: 100% !important;
       width: 100%;
+      flex: none;
     }
 
     .rt-tr-group {
@@ -105,6 +123,7 @@
 
     .-rating {
       @media only screen and (max-width: 420px) {
+        width: 100% !important;
         color: #000;
         background: $alchemy-green;
       }
@@ -131,5 +150,6 @@
 
   .delete {
     cursor: pointer;
+    text-decoration: underline;
   }
 }
