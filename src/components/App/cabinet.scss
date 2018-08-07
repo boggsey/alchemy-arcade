@@ -122,7 +122,7 @@
 
     @media only screen and (max-width: 420px) {
       height: 40px;
-      width: calc(100%);
+      width: 100%;
     }
 
     &:before,
@@ -135,8 +135,20 @@
       content: ' ';
       z-index: 2;
     }
-    &:before { left: -8px; transform:skewX(160deg)}
-    &:after { right: -7px; transform:skewX(20deg);} 
+    &:before {
+      left: -17px;
+      transform:skewX(160deg);
+      @media only screen and (max-width: 420px) {
+        left: -8px;
+      }
+    }
+    &:after {
+      right: -17px;
+      transform:skewX(20deg);
+      @media only screen and (max-width: 420px) {
+        left: -7px;
+      }
+    } 
   }
 
   .cabinet-bottom-face {
