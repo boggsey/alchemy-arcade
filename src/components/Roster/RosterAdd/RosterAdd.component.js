@@ -6,11 +6,53 @@ import { Link } from 'react-router-dom';
 import Select from 'react-select';
 import RosterAddSchema from './RosterAdd.schema';
 import addPlayer from './RosterAdd.actions';
+import './RosterAdd.scss';
 
 const options = [
   { value: 'left', label: 'Left' },
   { value: 'right', label: 'Right' },
 ];
+
+const customStyles = {
+  option: base => ({
+    ...base,
+    backgroundColor: '#000',
+    border: '1px solid #95d13c',
+    ':active': {
+      background: 'linear-gradient(to right, #95d13c, #000000);',
+      color: '#000000',
+    },
+  }),
+  control: base => ({
+    ...base,
+    backgroundColor: 'none',
+    border: '2px solid #95d13c',
+    borderRadius: '0',
+    borderColor: '#95d13c',
+    '&:hover': {
+      borderColor: '#95d13c',
+    },
+  }),
+  placeholder: base => ({
+    ...base,
+    color: '#95d13c',
+  }),
+  menu: base => ({
+    ...base,
+    borderRadius: '0',
+    color: '#95d13c',
+    background: 'none',
+  }),
+  menuList: base => ({
+    ...base,
+    fontFamily: 'Arial',
+  }),
+  singleValue: base => ({
+    ...base,
+    color: '#95d13c',
+    fontFamily: 'Arial',
+  }),
+};
 
 const RosterAdd = (props) => {
   return (
@@ -93,6 +135,8 @@ const RosterAdd = (props) => {
               error={errors.topics}
               touched={touched.topics}
               options={options}
+              styles={customStyles}
+              classNamePrefix="react-select"
             />
           </div>
 
