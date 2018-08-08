@@ -43,7 +43,7 @@ const deletePlayer = (player, token) => {
       const data = await rosterDeleteRequest(player, token);
       if (data.success) {
         dispatch(receiveRosterDelete());
-        await dispatch(getRosterList(token));
+        dispatch(getRosterList(token));
         dispatch(Notifications.removeAll());
         dispatch(success({ position: 'tr', message: 'Player was deleted.', autoDismiss: 5 }));
       } else {
