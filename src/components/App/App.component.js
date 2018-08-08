@@ -48,7 +48,9 @@ const style = {
 };
 
 const App = (props) => {
-  const { isAuthenticated, logout, notifications, location } = props;
+  const {
+    isAuthenticated, logout, notifications, location,
+  } = props;
 
   return (
     <div>

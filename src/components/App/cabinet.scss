@@ -99,8 +99,15 @@ body {
       content: ' ';
       z-index: 2;
     }
-    &:before { left: 0px;}
-    &:after { right: 0px;}
+    &:before {
+      left: 0px;
+      background: linear-gradient(to right, #666, #555);
+      box-shadow: 5px 0 10px 0 #000;
+    }
+    &:after { 
+      right: 0px;
+      box-shadow: -5px 0 10px 0 #000;
+    }
 
     .cabinet-screen {
       background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
@@ -122,8 +129,9 @@ body {
     height: 70px;
     width: calc(80% - 60px);
     margin: 0 auto;
-    background: #222 linear-gradient(black, transparent);
-    background-position: cover;
+    background-color: #222;
+    background-image: url('panel-background.png'), linear-gradient(black, transparent);
+    background-size: cover;
     position: relative;
     box-shadow: 0 0 100px 15px rgba(0,0,0,.8);
 
