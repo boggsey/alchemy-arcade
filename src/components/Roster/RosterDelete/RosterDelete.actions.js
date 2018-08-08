@@ -1,4 +1,4 @@
-import { error } from 'react-notification-system-redux';
+import Notifications, { success, error } from 'react-notification-system-redux';
 import {
   ROSTER_DELETE_REQUEST,
   ROSTER_DELETE_SUCCESS,
@@ -44,13 +44,17 @@ const deletePlayer = (player, token) => {
       if (data.success) {
         dispatch(receiveRosterDelete());
         dispatch(getRosterList(token));
+        dispatch(Notifications.removeAll());
+        dispatch(success({ position: 'tr', message: 'Player was deleted.', autoDismiss: 5 }));
       } else {
+        dispatch(Notifications.removeAll());
         dispatch(errorRosterDelete());
-        dispatch(error({ position: 'tr', message: data.error.message, autoDismiss: 30 }));
+        dispatch(error({ position: 'tr', message: data.error.message, autoDismiss: 5 }));
       }
     } catch (err) {
       dispatch(errorRosterDelete());
-      dispatch(error({ position: 'tr', message: err.message, autoDismiss: 10 }));
+      dispatch(Notifications.removeAll());
+      dispatch(error({ position: 'tr', message: err.message, autoDismiss: 5 }));
     }
   };
 };

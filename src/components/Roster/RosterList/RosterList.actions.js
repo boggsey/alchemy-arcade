@@ -1,4 +1,4 @@
-import { error } from 'react-notification-system-redux';
+import Notifications, { error } from 'react-notification-system-redux';
 import {
   ROSTER_LIST_REQUEST,
   ROSTER_LIST_SUCCESS,
@@ -45,11 +45,13 @@ export const getRosterList = (token) => {
         dispatch(receiveRosterList(data.players));
       } else {
         dispatch(errorRosterList());
-        dispatch(error({ position: 'tr', message: data.error.message, autoDismiss: 10 }));
+        dispatch(Notifications.removeAll());
+        dispatch(error({ position: 'tr', message: data.error.message, autoDismiss: 5 }));
       }
     } catch (err) {
       dispatch(errorRosterList());
-      dispatch(error(err));
+      dispatch(Notifications.removeAll());
+      dispatch(error({ position: 'tr', message: err.message, autoDismiss: 5 }));
     }
   };
 };

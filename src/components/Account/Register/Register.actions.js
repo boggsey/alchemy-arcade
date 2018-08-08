@@ -1,5 +1,5 @@
 import { push } from 'connected-react-router';
-import { error } from 'react-notification-system-redux';
+import Notifications, { error } from 'react-notification-system-redux';
 import {
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
@@ -48,10 +48,12 @@ const register = (user) => {
         dispatch(receiveAuth());
         dispatch(push('/roster'));
       } else {
+        dispatch(Notifications.removeAll());
         dispatch(errorRegister());
         dispatch(error({ position: 'tr', message: data.error.message, autoDismiss: 30 }));
       }
     } catch (err) {
+      dispatch(Notifications.removeAll());
       dispatch(errorRegister());
       dispatch(error({ position: 'tr', message: err.message, autoDismiss: 10 }));
     }

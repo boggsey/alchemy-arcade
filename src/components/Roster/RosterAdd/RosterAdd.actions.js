@@ -1,5 +1,5 @@
 import { push } from 'connected-react-router';
-import { error } from 'react-notification-system-redux';
+import Notifications, { error } from 'react-notification-system-redux';
 import {
   ROSTER_ADD_REQUEST,
   ROSTER_ADD_SUCCESS,
@@ -48,11 +48,13 @@ const rosterAdd = (player, token) => {
         dispatch(push('/roster'));
       } else {
         dispatch(errorRosterAdd());
-        dispatch(error({ position: 'tr', message: data.error.message, autoDismiss: 30 }));
+        dispatch(Notifications.removeAll());
+        dispatch(error({ position: 'tr', message: data.error.message, autoDismiss: 5 }));
       }
     } catch (err) {
       dispatch(errorRosterAdd());
-      dispatch(error({ position: 'tr', message: err.message, autoDismiss: 10 }));
+      dispatch(Notifications.removeAll());
+      dispatch(error({ position: 'tr', message: err.message, autoDismiss: 5 }));
     }
   };
 };

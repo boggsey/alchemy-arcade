@@ -17,13 +17,14 @@ const style = {
     DefaultStyle: {
       position: 'absolute',
       top: '10',
+      width: '100%',
     },
   },
   NotificationItem: {
     DefaultStyle: {
       border: '2px solid #95d13c',
       boxShadow: '0',
-      background: '0',
+      background: '#000',
       borderRadius: '0',
       fontFamily: '"Press Start 2P"',
       fontSize: '10px',
