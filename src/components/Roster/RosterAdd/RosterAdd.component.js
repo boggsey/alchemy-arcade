@@ -23,6 +23,14 @@ const customStyles = {
       color: '#000000',
     },
   }),
+  dropdownIndicator: base => ({
+    ...base,
+    color: '#95d13c',
+  }),
+  indicatorSeparator: base => ({
+    ...base,
+    backgroundColor: '#95d13c',
+  }),
   control: base => ({
     ...base,
     backgroundColor: 'none',
