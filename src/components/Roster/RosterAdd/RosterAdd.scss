@@ -1,0 +1,25 @@
+@import '../../../styles/variables.scss';
+
+.react-select-container {
+  background-color: none;
+}
+
+.react-select__control {
+  background: none;
+  color: $alchemy-green;
+  border: 2px solid $alchemy-green;
+  border-radius: 0;
+}
+
+.react-select__placeholder {
+  color: $alchemy-green;
+  font-family: 'Arial';
+}
+
+.react-select__menu {
+  background: black;
+}
+
+.react-select__option {
+  color: $alchemy-green;
+}
