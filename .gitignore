@@ -5,3 +5,4 @@ node_modules
 .DS_Store
 tests/e2e/screenshots
 tests/e2e/videos
+__snapshots__

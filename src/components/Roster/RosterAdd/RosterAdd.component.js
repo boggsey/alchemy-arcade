@@ -144,6 +144,7 @@ const RosterAdd = (props) => {
               touched={touched.topics}
               options={options}
               styles={customStyles}
+              id="handedness"
               classNamePrefix="react-select"
             />
           </div>
