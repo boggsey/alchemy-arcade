@@ -45,7 +45,8 @@ const RegisterForm = props => (
             onChange={handleChange}
             onBlur={handleBlur}
           />
-        </div>
+          {touched.first_name && errors.first_name && <div className="form__field-error">{errors.first_name}</div>}
+        </div>      
 
         <div className="form__field-wrapper">
           <label className="form__field-label" htmlFor="lastName">Last Name</label>
@@ -59,7 +60,8 @@ const RegisterForm = props => (
             onChange={handleChange}
             onBlur={handleBlur}
           />
-        </div>
+          {touched.last_name && errors.last_name && <div className="form__field-error">{errors.last_name}</div>}
+        </div>    
 
         <div className="form__field-wrapper">
           <label className="form__field-label" htmlFor="email">Email</label>
@@ -76,8 +78,9 @@ const RegisterForm = props => (
             autoCapitalize="off"
             spellCheck="false"
           />
+          {touched.email && errors.email && <div className="form__field-error">{errors.email}</div>}
         </div>
-
+        
         <div className="form__field-wrapper">
           <label className="form__field-label" htmlFor="password">Password</label>
           <input
@@ -90,8 +93,9 @@ const RegisterForm = props => (
             onChange={handleChange}
             onBlur={handleBlur}
           />
+          {touched.password && errors.password && <div className="form__field-error">{errors.password}</div>}
         </div>
-
+        
         <div className="form__field-wrapper">
           <label className="form__field-label" htmlFor="confirmPassword">Confirm Password</label>
           <input
@@ -104,14 +108,7 @@ const RegisterForm = props => (
             onChange={handleChange}
             onBlur={handleBlur}
           />
-        </div>
-
-        <div className="form__field-error-wrapper">
-          {touched.first_name && errors.first_name && <span className="form__field-error">{errors.first_name}</span>}
-          {touched.last_name && errors.last_name && <span className="form__field-error">{errors.last_name}</span>}
-          {touched.email && errors.email && <span className="form__field-error">{errors.email}</span>}
-          {touched.password && errors.password && <span className="form__field-error">{errors.password}</span>}
-          {touched.confirm_password && errors.confirm_password && <span className="form__field-error">{errors.confirm_password}</span>}
+          {touched.confirm_password && errors.confirm_password && <div className="form__field-error">{errors.confirm_password}</div>}
         </div>
 
         <div className="form__submit-btn-wrapper">

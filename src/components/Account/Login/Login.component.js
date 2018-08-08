@@ -28,7 +28,6 @@ const LoginForm = props => (
       handleChange,
       handleBlur,
       handleSubmit,
-      isSubmitting,
     }) => (
       <form className="login-form" onSubmit={handleSubmit} noValidate>
         <div className="form__field-wrapper">
@@ -46,6 +45,7 @@ const LoginForm = props => (
             autoCapitalize="off"
             spellCheck="false"
           />
+          {touched.email && errors.email && <span className="form__field-error">{errors.email}</span>}
         </div>
 
         <div className="form__field-wrapper">
@@ -59,13 +59,9 @@ const LoginForm = props => (
             onChange={handleChange}
             onBlur={handleBlur}
           />
-        </div>
-
-        <div className="form__field-error-wrapper">
-          {touched.email && errors.email && <span className="form__field-error">{errors.email}</span>}
           {touched.password && errors.password && <span className="form__field-error">{errors.password}</span>}
         </div>
-
+    
         <div className="form__submit-btn-wrapper">
           <button className="form__submit-btn" id="login" type="submit">Login</button>
           <Link to="/register" className="form__submit-navigation">Go to Register</Link>

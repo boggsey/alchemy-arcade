@@ -7,6 +7,7 @@ describe('Login Page', () => {
 
 	it('Accepts valid email and password', () => {
 		cy.login();
+		cy.wait(10);
 		cy.url().should('eq', 'http://localhost:3000/roster');
 	});
 });

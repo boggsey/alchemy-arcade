@@ -104,6 +104,7 @@ const RosterAdd = (props) => {
               onChange={handleChange}
               onBlur={handleBlur}
             />
+            {touched.first_name && errors.first_name && <div className="form__field-error">{errors.first_name}</div>}
           </div>
 
           <div className="form__field-wrapper">
@@ -118,6 +119,7 @@ const RosterAdd = (props) => {
               onChange={handleChange}
               onBlur={handleBlur}
             />
+            {touched.last_name && errors.last_name && <div className="form__field-error">{errors.last_name}</div>}
           </div>
 
           <div className="form__field-wrapper">
@@ -132,6 +134,7 @@ const RosterAdd = (props) => {
               onChange={handleChange}
               onBlur={handleBlur}
             />
+            {touched.rating && errors.rating && <div className="form__field-error">{errors.rating}</div>}
           </div>
 
           <div className="form__field-wrapper">
@@ -147,13 +150,7 @@ const RosterAdd = (props) => {
               id="handedness"
               classNamePrefix="react-select"
             />
-          </div>
-
-          <div className="form__field-error-wrapper">
-            {touched.first_name && errors.first_name && <span className="form__field-error">{errors.first_name}</span>}
-            {touched.last_name && errors.last_name && <span className="form__field-error">{errors.last_name}</span>}
-            {touched.rating && errors.rating && <span className="form__field-error">{errors.rating}</span>}
-            {touched.handedness && errors.handedness && <span className="form__field-error">{errors.handedness}</span>}
+            {touched.handedness && errors.handedness && <div className="form__field-error">{errors.handedness}</div>}
           </div>
 
           <div className="form__submit-btn-wrapper">
