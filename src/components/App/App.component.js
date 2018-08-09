@@ -89,7 +89,9 @@ App.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
   logout: PropTypes.func.isRequired,
   notifications: PropTypes.arrayOf(PropTypes.object),
-  location: PropTypes.object.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 function mapStateToProps(state) {

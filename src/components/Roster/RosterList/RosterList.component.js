@@ -8,8 +8,7 @@ import getRosterList from './RosterList.actions';
 import RosterDelete from '../RosterDelete/RosterDelete.component';
 import './RosterList.scss';
 
-export class RosterList extends Component {
-
+class RosterList extends Component {
   componentDidMount() {
     this.getTableData();
   }

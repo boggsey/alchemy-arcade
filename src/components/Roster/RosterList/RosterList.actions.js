@@ -36,7 +36,7 @@ async function rosterListRequest(token) {
   return response.json();
 }
 
-export const getRosterList = (token) => { 
+const getRosterList = (token) => {
   return async (dispatch) => {
     dispatch(requestRosterList());
     try {
