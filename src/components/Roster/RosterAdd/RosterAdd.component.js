@@ -69,7 +69,7 @@ const RosterAdd = (props) => {
         first_name: '',
         last_name: '',
         rating: '',
-        handedness: 'left',
+        handedness: '',
       }}
       validationSchema={RosterAddSchema}
       onSubmit={async (values) => {
@@ -87,7 +87,6 @@ const RosterAdd = (props) => {
         handleChange,
         handleBlur,
         handleSubmit,
-        isSubmitting,
         setFieldValue,
         setFieldTouched,
       }) => (
@@ -140,11 +139,11 @@ const RosterAdd = (props) => {
           <div className="form__field-wrapper">
             <label className="form__field-label" htmlFor="handedness">Handedness</label>
             <Select
-              value={values.topics}
-              onChange={setFieldValue}
+              value={values.option}
+              onChange={value => setFieldValue('handedness', value.value)}
               onBlur={setFieldTouched}
-              error={errors.topics}
-              touched={touched.topics}
+              error={errors.handedness}
+              touched={touched.handedness}
               options={options}
               styles={customStyles}
               id="handedness"

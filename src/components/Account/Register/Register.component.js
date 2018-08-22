@@ -18,7 +18,7 @@ const RegisterForm = props => (
     validationSchema={RegisterSchema}
     onSubmit={async (values) => {
       try {
-        const registerReturn = await props.register(values);
+        await props.register(values);
       } catch (error) {
         console.log(error);
       }
@@ -61,7 +61,7 @@ const RegisterForm = props => (
             onBlur={handleBlur}
           />
           {touched.last_name && errors.last_name && <div className="form__field-error">{errors.last_name}</div>}
-        </div>    
+        </div>
 
         <div className="form__field-wrapper">
           <label className="form__field-label" htmlFor="email">Email</label>
@@ -80,7 +80,7 @@ const RegisterForm = props => (
           />
           {touched.email && errors.email && <div className="form__field-error">{errors.email}</div>}
         </div>
-        
+
         <div className="form__field-wrapper">
           <label className="form__field-label" htmlFor="password">Password</label>
           <input
@@ -95,7 +95,7 @@ const RegisterForm = props => (
           />
           {touched.password && errors.password && <div className="form__field-error">{errors.password}</div>}
         </div>
-        
+
         <div className="form__field-wrapper">
           <label className="form__field-label" htmlFor="confirmPassword">Confirm Password</label>
           <input
